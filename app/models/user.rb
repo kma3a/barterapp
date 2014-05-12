@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :available_items
-  has_many :listed_items, through: :available_items, class_name: "Item"
+  has_many :listed_items, through: :available_items, source: :item
   has_many :wants
-  has_many :wanted_items, through: :wants, class_name: "Item"
+  has_many :wanted_items, through: :wants, source: :item
 
 end
