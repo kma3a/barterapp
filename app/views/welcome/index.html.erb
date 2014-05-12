@@ -1,2 +1,13 @@
 <%= link_to "Sign In", new_user_session_path %>
 <%= link_to "Sign Up", new_user_registration_path %>
+
+<div class="items">
+  <ul>
+    <% @available_items.each do |ai| %>
+      <li class="item">
+        <a href="#"><%=ai.item.name %></a></br>
+        created <%= (Time.new - ai.created_at.to_time).to_i / 60 %> minutes ago   By: <%= ai.user.email%>
+      </li>
+    <%end%>
+  </ul>
+</div>
